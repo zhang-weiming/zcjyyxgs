@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>山西大学资产管理公司</title>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        nav{
+            margin-bottom: 0px !important;
+        }
+        .navbar-nav a{
+            text-align: center;
+            margin-left:15px;
+            margin-right: 15px;
+            width: 125px;
+            height: 70px !important;
+            line-height: 40px !important;
+            font-size: 18px !important;
+        }
+        .navbar-default{
+            background-color: white !important;
+            border:0px;
+        }
+        nav .container{
+    
+        }
+        .navbar-nav a:hover{
+            background-color: rgb(5,149,149) !important;
+            color:white !important;
+        }
+        .carousel-inner img{
+            width:1140px;
+            height: 400px !important;
+        }
+        .dropdown-menu li a:hover{
+            background-color: rgb(5,149,149) !important;
+            color:white !important;
+            width:150px;
+        }
+        .dropdown-menu li a{
+            padding-top: 15px;
+        }
+        .dropdown-menu ul{
+            width: 120px !important;
+        }
+        .dropdown-menu a{
+            width:125px;
+            margin: 0 auto;
+            height:70px !important;
+            line-height: 40px !important;
+        }
+        .newsRight ul li{
+            list-style: none;
+        }
+        .newsRight ul li a{
+            height: 90px;
+            line-height: 90px;
+            width:200px;
+            text-align: center;
+        }
+        .notice ul{
+            margin-top: 10px;
+        }
+        .notice ul li{
+            list-style: none;
+        }
+        .notice{
+            text-align: center;
+            background-color: rgb(248,247,244);
+        }
+        .colorfulSpan{
+    
+        }
+        .new{
+            max-width:300px;
+            color:black;
+            font-family: 微软雅黑;
+        }
+        .newsRight li{
+            height: 90px;
+        }
+        .new a{
+            color:black;
+            font-family: 微软雅黑;
+        }
+        footer{
+            min-height:320px;
+            background-color: rgb(5,149,149);
+        }
+        .ltext{
+            position:relative;
+            top:105px;
+            color:white;
+        }
+        .time{
+            width:70px;
+            height: 60px;
+            position:relative;
+            left:10px;
+            top:10px;
+        }
+        .day{
+            width:70px;
+            height: 30px;
+            background-color: rgb(5,149,149);
+        }
+        .month{
+            width: 70px;
+            height: 30px;
+            background-color: white;
+        }
+        .notMessage{
+            text-align: left;
+            height: 70px;
+            margin-top: 10px;
+        }
+        .notMessage a{
+            line-height: 60px;
+            color:black;
+            font-family: 微软雅黑;
+        }
+        .companyInfo{
+            word-wrap:break-word; word-break:break-all;
+            text-align: left;
+        }
+        .companytext{
+            width:340px;
+            text-align: left;
+            margin-top:10px;
+        }
+        .friend{
+            background-color: rgb(248,247,247);
+            width:100%;
+            min-height: 300px;
+        }
+        .links li{
+            margin-top: 30px;
+            width:220px;
+            float:left;
+            text-align: center;
+            list-style: none;
+        }
+        .links li a{
+            color:black;
+        }
+        .links li:after{
+            content: ">";
+            position:relative;
+            left:5px;
+        }
+        .images{
+            margin-top: 100px;
+        }
+        .images img{
+            margin-right:20px;
+        }
+        .article-body{
+            background-color: rgb(249,249,249);
+            min-height: 400px;
+        }
+        .picText{
+            background-color: rgba(5,149,149,0.9);
+            width:240px;
+            height: 100px;
+            border-bottom: 5px solid rgb(255,168,0);
+            color:white;
+            position: absolute;
+            top: 140px;
+            padding-top: 0px;
+        }
+        .picText h1{
+            padding-top: 10px;
+            padding-left:35px;
+        }
+        .article-chooser{
+            background-color: white;
+        }
+        .tyleft{
+            list-style: none;
+            min-height: 600px;
+        }
+        .tyleft li{
+            width:100%;
+            height: 70px;
+        }
+        .tyleft li{
+            list-style: none;
+            color:rgb(134,134,134);
+            text-align: center;
+            line-height: 70px;
+            border-bottom: 1px solid rgb(215,215,215);
+        }
+        .tyleft a{
+            color:rgb(134,134,134);
+            font-size:18px;
+        }
+        .breadcrumb{
+            background-color: white !important;
+        }
+        .bread{
+            margin-top: 20px;
+        }
+        .articleTitle{
+            color:rgb(5,149,149);
+        }
+        .articleContent{
+            width: 100%;
+            margin-top: 20px;
+            border-top:1px solid  rgb(215,215,215);
+        }
+        .container{
+            width:1170px;
+        }
+        .phonegreen{
+            background-color:rgb(5,149,149) ;
+            min-height: 320px;
+        }
+        .articleTime{
+            display: inline-block;
+            margin-left: 20px;
+            color:rgb(152,152,152);
+        }
+        .articleInfo{
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+        article{
+            padding:20px;
+            font-size: 18px;
+        }
+        article p{
+            margin-bottom: 20px;
+        }
+        article img{
+            width:100%;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    #parse("header.vm")
+    <!--上方的图片-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 bigPic">
+                <!-- 政策法规_05.png -->
+                <img src="/pub/zcjy/images/content/2018-01/20180106214724739744.png" alt="" width="100%">
+                <div class="picText">
+                    <h1>$curChannel.title</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid article-body">
+        <div class="container article-chooser">
+            <div class="row">
+                <!-- 左侧 -->
+                <div class="col-xs-4">
+                    <div class="tyleft">
+                        <ul>
+                        #foreach($article in $cms.getContents($curChannel.title, 10))
+                            <li><a href="$cms.getUrl($article)">$article.name</a></li>
+                        #end
+                        </ul>
+                    </div>
+                </div>
+                <!-- 右侧 wen'zhang -->
+                <div class="col-xs-8">
+                    <div class="bread">
+                        <ol class="breadcrumb">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="$cms.getUrl($curChannel)">$curChannel.title</a></li>
+                            <li class="active">$curArticle.name</li>
+                        </ol>
+                    </div>
+                    <div class="articleTitle">
+                        <h2>$curArticle.name</h2>
+                    </div>
+                    <div class="articleContent">
+                        <div class="articleInfo">
+                            <p class="author" style="display:inline-block">$!{curArticle.author}</p>
+                            <h4 class="articleTime">$cms.format($curArticle.publishDate)</h4>
+                        </div>
+                        <article>
+                            <p>$curArticle.content</p>
+                        </article>
+						#if($cmsService.getArticleAttachmentCount($curArticle.ID, 3)>0) <br />
+						<font size="4">相关附件：</font>
+							#foreach($doc in $cms.getAttachments($curArticle)) 
+								<li style="color:#009900"><a href="$cms.getUrl($doc)"><font color="#009900" size="4">$doc.name</font></a></li>
+							#end
+						#end
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("footer.vm")
+    <script>
+	$(document).ready(function(){
+		var leftAs = $(".tyleft li");
+		(function(){
+			for(var i = 0;i<leftAs.length;i++){
+				if($(leftAs[i]).text().trim().length>25){
+					$(leftAs[i]).css("line-height","35px");
+				}
+			}
+		})()
+	})
+    </script>
+</body>
+</html>
