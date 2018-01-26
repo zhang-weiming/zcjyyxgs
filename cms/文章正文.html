@@ -37,7 +37,10 @@
                     </div>
                     <div class="articleContent">
                         <div class="articleInfo">
-                            <p class="author" style="display:inline-block">$!{curArticle.author}</p>
+                            <h4 class="author">$!{curArticle.author}</h4>
+                            #if($curArticle.author != "")
+                                <div style="display:inline-block; width: 10px;"></div>
+                            #end
                             <h4 class="articleTime">$cms.format($curArticle.publishDate)</h4>
                         </div>
                         <article>

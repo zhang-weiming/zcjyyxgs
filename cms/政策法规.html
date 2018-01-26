@@ -1,0 +1,67 @@
+    #parse("header.vm")
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 bigPic">
+                <!-- 政策法规_05.png -->
+                <img src="/pub/zcjy/images/content/2018-01/20180106214724739744.png" alt="" width="100%">
+                <div class="picText">
+                    <h1>$curChannel.title</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid article-body">
+        <div class="container article-chooser">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="rawBicPic">
+                        <!-- 政策法规_08.png /pub/zcjy/images/content/2018-01/20180107162043118339.png -->
+                        <img src="/pub/zcjy/images/content/2018-01/20180107162043118339.png" alt="">
+                    </div>
+                    #foreach($article in $cms.getContents($curChannel.title, 10))
+                    <div class="raw">
+                        <div class="col-xs-6">
+                            <script>
+                                // ##console.log('[curArticle]$curArticle|$curArticle.content');
+                                // ##console.log('[article]$article|$article.content');
+
+                                picUrl = '$cms.getPictureUrl($article)';
+                                if (picUrl == '') {
+                                    picUrl = '/pub/zcjy/images/content/2018-01/20180107162043118339.png';
+                                }
+                                // 政策法规_08.png
+                                document.write('<img src="' + picUrl + '" alt="">');
+                            </script>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="rawtitle">
+                                <h2><a href="$cms.getUrl($article)">$article.name</a></h2>
+                            </div>
+                            <div class="rawcontent">
+                                <p>$article.content</p>
+                            </div>
+                            <div class="rawTime">
+                                <p>$cms.format($article.publishDate)</p>
+                            </div>
+                        </div>
+                    </div>
+                    #end
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("footer.vm")
+    <script>
+        var rawcontents = $(".rawcontent");
+        rawcontents.each(function(index,ele){
+            if($(ele).text().trim().length > 100){
+                $(ele).text($(ele).text().trim().slice(0,100));
+            }
+        })
+
+        console.log('[getPageContent]$cms.getPageContents($curChannel, $curPage)');
+        console.log('[getContent]$cms.getContents($curChannel.title, 10)');
+        console.log('[curArticle]$curArticle|$curArticle.content');
+    </script>
+</body>
+</html>

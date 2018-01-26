@@ -1,0 +1,145 @@
+    #parse("header.vm")
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 bigPic">
+                <!-- 政策法规_05.png -->
+                <img src="/pub/zcjy/images/content/2018-01/20180106214724739744.png" alt="" width="100%">
+                <div class="picText">
+                    <h1>$curChannel.parent.title</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid article-body">
+        <div class="container article-chooser">
+            <div class="row">
+                <!-- 左侧 二级标题列表 -->
+                <div class="col-xs-4">
+                    <div class="tyleft">
+                        <ul>
+                        #foreach($channel in $cms.getChildren($curChannel.parent.title))
+                            <li><a href="$cms.getUrl($channel)">$channel.title</a></li>
+                        #end
+                        </ul>
+                    </div>
+                </div>
+                <!-- 右侧 文章列表 -->
+                <div class="col-xs-8">
+                    <div class="bread">
+                        <ol class="breadcrumb">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="$cms.getUrl($curChannel.parent)">$curChannel.parent.title</a></li>
+                            <li class="active">$curChannel.title</li>
+                        </ol>
+                        <!-- <p>当前位置：#channelNav()</p> -->
+                    </div>
+                    <div class="articleTitle">
+                        <h2>$curChannel.title</h2>
+                    </div>
+                    <div class="articleContent">
+                        #set($articleList = $cms.getPageContents($curChannel, $curPage))
+                        <!-- 第一个显示的文章标题 -->
+                        <div class="bigNew">
+                            #set($cnter = 0)
+                            #foreach($article in $articleList)
+                                #if($cnter < 1)
+                                    <div class="col-xs-6">
+                                        #if($cms.getPictureUrl($article) == "")
+                                            <img src="/pub/zcjy/images/content/2018-01/20180106215354331467.png" alt="">
+                                        #else
+                                            <img src="$cms.getPictureUrl($article)" alt="">
+                                        #end
+                                        <!-- <img src="$cms.getPictureUrl($article)" alt=""> -->
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h1 class="bigNewTitle"><a href="$cms.getUrl($article)">$article.name</a></h1>
+                                        <p class="bigNewTime">$cms.format($article.publishDate)</p>
+                                        <a href="$cms.getUrl($article)" class="bitgNewMore">【详情】</a>
+                                    </div>
+                                    #set($cnter = $cnter + 1)
+                                #end
+                            #end
+                        </div>
+
+                        <!-- <div class="bigNew">
+                            <script>
+                                var cnt = 0;
+                                ##foreach($article in $articleList)
+                                    if (cnt == 0) {
+                                        picUrl = '$cms.getPictureUrl($article)';
+                                        if (picUrl == '') {
+                                            console.log('no picture!');
+                                            // 网站_22.png
+                                            picUrl = '/pub/zcjy/images/content/2018-01/20180106215354331467.png';
+                                        }
+                                        document.write(
+                                            '<div class="col-xs-6">' + 
+                                                '<img src="' + picUrl + '" alt="">' + 
+                                                '</div>' +
+                                                '<div class="col-xs-6">' + 
+                                                '<h1 class="bigNewTitle"><a href="$cms.getUrl($article)">$article.name</a></h1>' + 
+                                                '<p class="bigNewTime">$cms.format($article.publishDate)</p>' + 
+                                                '<a href="$cms.getUrl($article)" class="bitgNewMore">【详情】</a>' + 
+                                            '</div>'
+                                        );
+                                        cnt += 1;
+                                    }
+                                ##end
+                            </script>
+                        </div> -->
+
+                        <div class="newsList">
+                            <ul>
+                            <script>
+                                var cnt = 0;
+                                #foreach($article in $articleList)
+                                    if (cnt == 0) {
+                                        cnt += 1;
+                                    } else {
+                                        document.write('<li><a href="$cms.getUrl($article)">$article.name</a><p class="newsTime">$cms.format($article.publishDate)</p></li>');
+                                    }
+                                #end
+                            </script>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="$cms.getIndexFileName($curChannel, 1)" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="$cms.getIndexFileName($curChannel, $prePage)">Prev</a></li>
+                                <li><a href="">$curPage</a></li>
+                                <li><a href="$cms.getIndexFileName($curChannel, $nextPage)">Next</a></li>
+                                <li>
+                                    <a href="$cms.getIndexFileName($curChannel, $totalPage)" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("footer.vm")
+    <script>
+        $(document).ready(function(){
+            var leftAs = $(".tyleft li");
+            (function(){
+                for(var i = 0;i<leftAs.length;i++){
+                    if($(leftAs[i]).text().trim().length>21){
+                        $(leftAs[i]).css("line-height","35px");
+                    }
+                }
+            })()
+        })
+    </script>
+</body>
+</html>

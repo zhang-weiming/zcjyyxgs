@@ -191,13 +191,15 @@
         .tyleft li{
             list-style: none;
             color:rgb(134,134,134);
-            text-align: center;
+            text-align:center;
             line-height: 70px;
             border-bottom: 1px solid rgb(215,215,215);
         }
         .tyleft a{
             color:rgb(134,134,134);
-            font-size:18px;
+            display: inline-block;
+            font-size:16px;
+            text-align: left;
         }
         .breadcrumb{
             background-color: white !important;
@@ -206,11 +208,13 @@
             margin-top: 20px;
         }
         .articleTitle{
+            text-align: center;
             color:rgb(5,149,149);
         }
         .articleContent{
             width: 100%;
             margin-top: 20px;
+            text-align: center;
             border-top:1px solid  rgb(215,215,215);
         }
         .container{
@@ -220,9 +224,12 @@
             background-color:rgb(5,149,149) ;
             min-height: 320px;
         }
+        .author{
+            display:inline-block;
+            color:rgb(152,152,152);
+        }
         .articleTime{
             display: inline-block;
-            margin-left: 20px;
             color:rgb(152,152,152);
         }
         .articleInfo{
@@ -284,7 +291,10 @@
                     </div>
                     <div class="articleContent">
                         <div class="articleInfo">
-                            <p class="author" style="display:inline-block">$!{curArticle.author}</p>
+                            <h4 class="author">$!{curArticle.author}</h4>
+                            #if($null.isNull($curArticle.author))
+                                <div style="display:inline-block; width: 20px;"></div>
+                            #end
                             <h4 class="articleTime">$cms.format($curArticle.publishDate)</h4>
                         </div>
                         <article>
